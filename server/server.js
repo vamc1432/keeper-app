@@ -1,11 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require("dotenv").config();
 const mongoose = require("mongoose");
 mongoose.connect("mongodb+srv://admin:admin123@cluster0.zgxwc.mongodb.net/keeperDB?retryWrites=true&w=majority",
  {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}
 );
-
 const app = express();
 
 app.use(cors());
