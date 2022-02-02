@@ -7,6 +7,7 @@ mongoose.connect("mongodb+srv://admin:admin123@cluster0.zgxwc.mongodb.net/keeper
  {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}
 );
 const app = express();
+const port = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -68,6 +69,7 @@ app.post("/editnote",(req,res)=>{
     
 });
 
-app.listen(4000,(req,res)=>{
-    console.log("server started at 4000");
+
+app.listen(port,(req,res)=>{
+    console.log("server started at "+port);
 });
