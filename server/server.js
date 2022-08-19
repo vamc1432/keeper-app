@@ -21,7 +21,7 @@ const keeperSchema = {
 };
 const keeperModel = new mongoose.model("note",keeperSchema);
 
-app.get("/",(req,res)=>{
+app.get("/getall",(req,res)=>{
     keeperModel.find({},(err,fData)=>{
         res.send(fData);
     });
