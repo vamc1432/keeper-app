@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+var path = require("path");
 const cors = require("cors");
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -12,6 +13,7 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'build')));
 
 const keeperSchema = {
     Ntitle: String,
