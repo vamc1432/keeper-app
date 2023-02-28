@@ -1,5 +1,5 @@
 import React from "react";
-import DoneIcon from '@material-ui/icons/Done';
+import DoneIcon from '@mui/icons-material/Done';
 
 function Editnote(props) {
     const [enote, setenote] = React.useState({
@@ -36,7 +36,7 @@ function Editnote(props) {
           props.edit(enote,props.Eid);
           e.preventDefault();
       }}>
-          <DoneIcon />
+      <DoneIcon />
       </button>
       </form>
     </div>

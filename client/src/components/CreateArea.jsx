@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import AddIcon from '@material-ui/icons/Add';
-import { Fab,Zoom } from '@material-ui/core';
+import AddIcon from '@mui/icons-material/Add';
+import { Fab, Zoom } from '@mui/material';
 
 function CreateArea(props) {
   var [ipnote, setipnote] = useState({

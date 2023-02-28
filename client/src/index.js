@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App"
+import LoginApp from "./components/LoginApp"
 
 ReactDOM.render(
-    <App />,
+    <LoginApp />,
     document.getElementById("root")
 );

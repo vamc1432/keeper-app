@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Editnote from "./Editnote";
-import Delete from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 function Note(props) {
   const [editclicked, seteditclicked] = useState(false);
@@ -9,13 +9,18 @@ function Note(props) {
       Edtitle:props.NoteTitle,
       Edcontent:props.NoteMessage
   });
+  let user = JSON.parse(sessionStorage.getItem('token'));
+  const token = user.token;
   function editNote(newEnote, EditId) {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json" ,
+        "Authorization" : `Bearer ${token}`
+      },
       body: JSON.stringify({ ...newEnote,id:EditId }),
     };
-    fetch("/editnote", requestOptions)
+    fetch("http://localhost:4000/api/notes/user/editnote", requestOptions)
     .then((res) =>res.json())
     .then((jsondata) => {
       setEditedNote((prev)=>{
@@ -46,7 +51,7 @@ function Note(props) {
               props.del(props.id);
             }}
           >
-            <Delete />
+          <DeleteIcon />
           </button>
           <button
             onClick={() => {
